@@ -20,7 +20,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@RequiredArgsConstructor
 public class UserEntity extends BaseTime {
 
     @Id

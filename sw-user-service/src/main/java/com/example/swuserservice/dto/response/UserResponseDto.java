@@ -17,6 +17,10 @@ public class UserResponseDto {
     private String userId;
 
     public static UserResponseDto from(UserEntity register) {
-        return null;
+        return UserResponseDto.builder()
+                .email(register.getEmail())
+                .nickname(register.getNickname())
+                .userId(register.getUserId())
+                .build();
     }
 }

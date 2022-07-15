@@ -27,5 +27,7 @@ spring:
             - Method=GET
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/sw-user-service/(?<segment>.*), /$\{segment}
+
+
 
