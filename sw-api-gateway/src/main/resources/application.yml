@@ -15,6 +15,17 @@ spring:
       default-filters:
         - name: GlobalFilter
           args:
-            baseMessage:
-            preLogger:
-            postLogger:
+            baseMessage: SW Dictionary Api Gateway global filter
+            preLogger: true
+            postLogger: true
+
+      routes:
+        - id: sw-user-service
+          uri: lb://SW-USER-SERVICE
+          predicates:
+            - Path=/sw-user-service/**
+            - Method=GET
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
