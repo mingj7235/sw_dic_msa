@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Slf4j
@@ -20,6 +21,10 @@ public class UserService {
     public UserEntity register(final @NotNull UserEntity entity) {
         // validation logic -> email duplication
         return userRepository.save(entity);
+    }
+
+    public UserEntity findByUserId(final @NotBlank String userId) {
+        return userRepository.findByUserId(userId);
     }
 
     // 회원 가입

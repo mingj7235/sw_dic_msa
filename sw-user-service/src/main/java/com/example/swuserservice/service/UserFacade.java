@@ -28,7 +28,10 @@ public class UserFacade {
         );
     }
 
+    @Transactional(readOnly = true)
     public UserResponseDto findByUserId(final @NotBlank String userId) {
-        return null;
+        return UserResponseDto.from(
+                userService.findByUserId(userId)
+        );
     }
 }
